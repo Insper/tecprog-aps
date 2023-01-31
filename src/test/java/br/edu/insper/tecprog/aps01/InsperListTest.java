@@ -48,14 +48,13 @@ public class InsperListTest {
         l.add(0, 12);
         l.add(0, 13);
         assertEquals(3, l.size());
-        l.remove(11);
+        l.remove(Integer.valueOf(11));
         assertEquals(2, l.size());
     }
 
     /*
      * Testes que verificam se INSERE foi implementado corretamente
      */
-
     public Object[] peekObjectArray(InsperList l) throws Exception {
         var atr = l.getClass().getDeclaredField("data");
         atr.setAccessible(true);
@@ -86,10 +85,14 @@ public class InsperListTest {
         l.add(1, 11);
         l.add(2, 12);
         l.add(3, 13);
+        l.add(4);
+        l.add(55);
         assertEquals(10, data[0]);
         assertEquals(11, data[1]);
         assertEquals(12, data[2]);
         assertEquals(13, data[3]);
+        assertEquals(4, data[4]);
+        assertEquals(55, data[5]);
     }
 
     @Test
@@ -132,13 +135,13 @@ public class InsperListTest {
         assertEquals(13, data[3]);
         assertEquals(l.size(), 4);
 
-        assertTrue(l.remove(10));
+        assertTrue(l.remove(Integer.valueOf(10)));
         assertEquals(11, data[0]);
         assertEquals(12, data[1]);
         assertEquals(13, data[2]);
         assertEquals(l.size(), 3);
 
-        assertTrue(l.remove(11));
+        assertTrue(l.remove(Integer.valueOf(11)));
         assertEquals(12, data[0]);
         assertEquals(13, data[1]);
         assertEquals(l.size(), 2);
@@ -158,13 +161,13 @@ public class InsperListTest {
         assertEquals(12, data[2]);
         assertEquals(13, data[3]);
 
-        assertTrue(l.remove(13));
+        assertTrue(l.remove(Integer.valueOf(13)));
         assertEquals(10, data[0]);
         assertEquals(11, data[1]);
         assertEquals(12, data[2]);
         assertEquals(l.size(), 3);
 
-        assertTrue(l.remove(12));
+        assertTrue(l.remove(Integer.valueOf(12)));
         assertEquals(10, data[0]);
         assertEquals(11, data[1]);
         assertEquals(l.size(), 2);
@@ -185,7 +188,7 @@ public class InsperListTest {
         assertEquals(13, data[3]);
         assertEquals(l.size(), 4);
 
-        assertFalse(l.remove(130));
+        assertFalse(l.remove(Integer.valueOf(130)));
         assertEquals(10, data[0]);
         assertEquals(11, data[1]);
         assertEquals(12, data[2]);
@@ -209,8 +212,31 @@ public class InsperListTest {
         assertEquals(11, data[3]);
         assertEquals(l.size(), 4);
 
-        assertTrue(l.remove(11));
+        assertTrue(l.remove(Integer.valueOf(11)));
         assertEquals(10, data[0]);
+        assertEquals(12, data[1]);
+        assertEquals(11, data[2]);
+        assertEquals(l.size(), 3);
+    }
+
+    @Test
+    @Tag("basico")
+    public void removeByIndex() throws Exception {
+        var l = new InsperArrayList<Integer>();
+        var data = peekObjectArray(l);
+        l.add(0, 10);
+        l.add(1, 11);
+        l.add(2, 12);
+        l.add(3, 11);
+        assertEquals(10, data[0]);
+        assertEquals(11, data[1]);
+        assertEquals(12, data[2]);
+        assertEquals(11, data[3]);
+        assertEquals(l.size(), 4);
+
+        assertEquals(10, l.remove(0));
+
+        assertEquals(11, data[0]);
         assertEquals(12, data[1]);
         assertEquals(11, data[2]);
         assertEquals(l.size(), 3);
@@ -298,7 +324,7 @@ public class InsperListTest {
         }
 
         for (int i = 0; i < 12; i++) {
-            l.remove(i);
+            l.remove(Integer.valueOf(i));
         }
 
         var data2 = peekObjectArray(l);
