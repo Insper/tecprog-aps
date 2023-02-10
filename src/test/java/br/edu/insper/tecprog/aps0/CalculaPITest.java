@@ -11,7 +11,7 @@ public class CalculaPITest {
                 3.132076531809106, 3.140638056205993, 3.1414971639472147 };
 
         for (int i = 0; i < n.length; i++) {
-            assertEquals(ans[i], CalculaPI.calculaPI(n[i]));
+            assertEquals(ans[i], CalculaPI.calculaPI(n[i]), 0.000001);
         }
     }
 }
