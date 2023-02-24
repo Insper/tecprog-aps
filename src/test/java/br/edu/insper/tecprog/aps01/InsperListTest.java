@@ -167,6 +167,9 @@ public class InsperListTest {
         assertEquals(12, data[2]);
         assertEquals(l.size(), 3);
 
+        var dataPosAdd = peekObjectArray(l);
+        assertTrue(data == dataPosAdd);
+
         assertTrue(l.remove(Integer.valueOf(12)));
         assertEquals(10, data[0]);
         assertEquals(11, data[1]);
@@ -206,6 +209,10 @@ public class InsperListTest {
         l.add(1, 11);
         l.add(2, 12);
         l.add(3, 11);
+
+        var dataPosAdd = peekObjectArray(l);
+        assertTrue(data == dataPosAdd);
+
         assertEquals(10, data[0]);
         assertEquals(11, data[1]);
         assertEquals(12, data[2]);
@@ -228,6 +235,10 @@ public class InsperListTest {
         l.add(1, 11);
         l.add(2, 12);
         l.add(3, 11);
+
+        var dataPosAdd = peekObjectArray(l);
+        assertTrue(data == dataPosAdd);
+
         assertEquals(10, data[0]);
         assertEquals(11, data[1]);
         assertEquals(12, data[2]);
@@ -323,13 +334,17 @@ public class InsperListTest {
             l.add(0, i);
         }
 
+        var dataPosAdd = peekObjectArray(l);
+        assertEquals(32, dataPosAdd.length);
+
+
         for (int i = 0; i < 12; i++) {
             l.remove(Integer.valueOf(i));
         }
 
         var data2 = peekObjectArray(l);
         assertNotEquals(data, data2);
-        assertEquals(8, data.length);
+        assertEquals(8, data2.length);
         for (int i = 0; i < 4; i++) {
             assertEquals(16 - i - 1, data2[i]);
             assertEquals(16 - i - 1, l.get(i));
