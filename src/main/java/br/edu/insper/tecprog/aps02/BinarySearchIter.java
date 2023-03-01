@@ -2,11 +2,15 @@ package br.edu.insper.tecprog.aps02;
 
 import br.edu.insper.tecprog.aps01.InsperList;
 
-public class BinarySearchIter<T> {
+public class BinarySearchIter{
     
-    public static <T extends Comparable<T>> boolean ordenado(InsperList<T> l) {
-        //TODO: e agora?
+    public static boolean ordenado(InsperList l) {
+        //TODO: completar aqui
 
     }   
+
+    public static <T extends Comparable<T>> int buscaBinaria(InsperList<T> l, T value) {
+        // TODO: completar aqui
+    }
 
 }
