@@ -1,6 +1,6 @@
 package br.edu.insper.tecprog.aps01;
 
-public interface InsperList<T> {
+public interface InsperList<T extends Comparable<T>> {
     public void add(T value);
     public void add(int pos, T value);
     public boolean remove(T value);
