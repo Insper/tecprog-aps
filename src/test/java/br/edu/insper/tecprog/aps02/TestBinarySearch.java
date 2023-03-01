@@ -79,8 +79,6 @@ public class TestBinarySearch {
         return actual_data;
     }
 
-
-
     @Test
     void buscaListaEncontraTodos() throws Exception {
         var l = new InsperArrayList<String>();
@@ -91,12 +89,27 @@ public class TestBinarySearch {
         Arrays.sort(data, 0, l.size());
         for (int i = 0; i < 11; i++) {
             var valor = "BLABLA" + Integer.toString(i);
-            assertEquals(Arrays.binarySearch(data, 0, l.size(), valor), BinarySearchIter.<String>buscaBinaria(l, valor));
+            assertEquals(Arrays.binarySearch(data, 0, l.size(), valor),
+                    BinarySearchIter.<String>buscaBinaria(l, valor));
         }
     }
 
     @Test
-    @Timeout(value=1, unit=TimeUnit.SECONDS)
+    void buscaListaEncontraRepetidos() throws Exception {
+        var l = new InsperArrayList<Integer>();
+        for (int i = 0; i < 7; i++) {
+            l.add(0);
+        }
+        for (int i = 0; i < 3; i++) {
+            l.add(1);
+        }
+        
+        assertEquals(0, BinarySearchIter.buscaBinaria(l, 0));
+        assertEquals(7, BinarySearchIter.buscaBinaria(l, 1));
+    }
+
+    @Test
+    @Timeout(value = 1, unit = TimeUnit.SECONDS)
     void buscaListaEncontraTodosGRANDE() throws Exception {
         var l = new InsperArrayList<Double>();
         int N = 100001;
