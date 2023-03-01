@@ -1,7 +1,5 @@
 package br.edu.insper.tecprog.aps02;
 
-package br.edu.insper.tecprog.aps02;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
