@@ -61,15 +61,15 @@ public class TestBinarySearch {
     @Test
     void buscaListaVazia() {
         InsperList<String> l = new InsperArrayList<String>();
-        assertEquals(-1, BinarySearchIter.buscaBinaria(l, "sdkj"));
+        assertEquals(-1, BinarySearchIter.buscaBinaria(l, "sdkj", 0, l.size()));
     }
 
     @Test
     void buscaListaUmElemento() {
         var l = new InsperArrayList<String>();
         l.add("BLABLA");
-        assertEquals(-1, BinarySearchIter.<String>buscaBinaria(l, "sdkj"));
-        assertEquals(0, BinarySearchIter.<String>buscaBinaria(l, "BLABLA"));
+        assertEquals(-1, BinarySearchIter.<String>buscaBinaria(l, "sdkj", 0, l.size()));
+        assertEquals(0, BinarySearchIter.<String>buscaBinaria(l, "BLABLA", 0, l.size()));
     }
 
     public Object[] peekObjectArray(InsperList l) throws Exception {
@@ -90,7 +90,7 @@ public class TestBinarySearch {
         for (int i = 0; i < 11; i++) {
             var valor = "BLABLA" + Integer.toString(i);
             assertEquals(Arrays.binarySearch(data, 0, l.size(), valor),
-                    BinarySearchIter.<String>buscaBinaria(l, valor));
+                    BinarySearchIter.<String>buscaBinaria(l, valor, 0, l.size()));
         }
     }
 
@@ -104,8 +104,8 @@ public class TestBinarySearch {
             l.add(1);
         }
         
-        assertEquals(0, BinarySearchIter.buscaBinaria(l, 0));
-        assertEquals(7, BinarySearchIter.buscaBinaria(l, 1));
+        assertEquals(0, BinarySearchIter.buscaBinaria(l, 0, 0, l.size()));
+        assertEquals(7, BinarySearchIter.buscaBinaria(l, 1, 0, l.size()));
     }
 
     @Test
@@ -118,7 +118,7 @@ public class TestBinarySearch {
         }
         for (int i = 0; i < N; i++) {
             var valor = 0.1 * i;
-            assertEquals(i, BinarySearchIter.<Double>buscaBinaria(l, valor));
+            assertEquals(i, BinarySearchIter.<Double>buscaBinaria(l, valor, 0, l.size()));
         }
     }
 

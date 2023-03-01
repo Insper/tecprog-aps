@@ -9,7 +9,7 @@ public class BinarySearchIter{
 
     }   
 
-    public static <T extends Comparable<T>> int buscaBinaria(InsperList<T> l, T value) {
+    public static <T extends Comparable<T>> int buscaBinaria(InsperList<T> l, T value, int inicio, int fim) {
         // TODO: completar aqui
     }
 
