@@ -1,4 +1,7 @@
 {
-    "java.debug.settings.forceBuildBeforeLaunch": false
+    "java.debug.settings.forceBuildBeforeLaunch": false,
+    "files.watcherExclude": {
+        "**/target": true
+    }
 
 }
