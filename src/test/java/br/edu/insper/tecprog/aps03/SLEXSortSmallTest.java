@@ -14,7 +14,7 @@ public class SLEXSortSmallTest {
         
         SLEXSort.sortByA(A, words);
 
-        assertArrayEquals(words, answer);
+        assertArrayEquals(answer, words);
     }
 
     @Test
@@ -25,7 +25,7 @@ public class SLEXSortSmallTest {
         
         SLEXSort.sortByA(A, words);
 
-        assertArrayEquals(words, answer);
+        assertArrayEquals(answer, words);
     }
 
     @Test
@@ -58,7 +58,7 @@ public class SLEXSortSmallTest {
         
         SLEXSort.sortByA(A, words);
 
-        assertArrayEquals(words, answer);
+        assertArrayEquals(answer, words);
     }
 
     @Test
@@ -272,7 +272,7 @@ public class SLEXSortSmallTest {
         
         SLEXSort.sortByA(A, words);
 
-        assertArrayEquals(words, answer);
+        assertArrayEquals(answer, words);
     }
 
 

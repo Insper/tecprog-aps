@@ -3,11 +3,9 @@ package br.edu.insper.tecprog.aps02;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.io.BufferedReader;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
+import java.nio.file.Paths;
 import java.util.concurrent.TimeUnit;
 
 import org.junit.jupiter.api.Test;
@@ -46,13 +44,13 @@ public class EkoTest {
         long M = 1243110;
         int[] inGrande1 = new int[176154];
         
-        var u = getClass().getClassLoader().getResourceAsStream("br/edu/insper/tecprog/aps02/in1Eko.txt");
-
-        var buf = new BufferedReader(new InputStreamReader(u));
+        var p = Paths.get("src", "test", "java", "br", "edu", "insper", "tecprog", "aps02", "in1Eko.txt").toFile();
+        var buf = new BufferedReader(new FileReader(p));
         var l1 = buf.readLine().split(" ");
         for (int i = 0; i < N; i++) {
             inGrande1[i] = Integer.parseInt(l1[i]);
         }
+        buf.close();
 
         assertEquals(996257, Eko.sawbladeHeight(inGrande1, M));
     }
@@ -64,13 +62,13 @@ public class EkoTest {
         long M = 1842108;
         int[] inGrande1 = new int[N];
         
-        var u = getClass().getClassLoader().getResourceAsStream("br/edu/insper/tecprog/aps02/in2Eko.txt");
-
-        var buf = new BufferedReader(new InputStreamReader(u));
+        var p = Paths.get("src", "test", "java", "br", "edu", "insper", "tecprog", "aps02", "in2Eko.txt").toFile();
+        var buf = new BufferedReader(new FileReader(p));
         var l1 = buf.readLine().split(" ");
         for (int i = 0; i < N; i++) {
             inGrande1[i] = Integer.parseInt(l1[i]);
         }
+        buf.close();
 
         assertEquals(998670, Eko.sawbladeHeight(inGrande1, M));
     }
