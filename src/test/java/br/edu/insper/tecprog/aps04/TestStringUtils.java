@@ -30,9 +30,9 @@ public class TestStringUtils {
         assertTrue(StringUtils.sufixo("!!asf!3", "f!3"));
 
         assertFalse(StringUtils.sufixo("abc", "a"));
-        assertTrue(StringUtils.sufixo("abbc 2", "2 "));
-        assertTrue(StringUtils.sufixo("abbc 2", "bbc"));
-        assertTrue(StringUtils.sufixo("bla bla\nbl", "abl"));
+        assertFalse(StringUtils.sufixo("abbc 2", "2 "));
+        assertFalse(StringUtils.sufixo("abbc 2", "bbc"));
+        assertFalse(StringUtils.sufixo("bla bla\nbl", "abl"));
     }
 
     @Test
