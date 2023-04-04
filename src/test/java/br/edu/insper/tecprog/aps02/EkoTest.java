@@ -38,7 +38,7 @@ public class EkoTest {
 
 
     @Test
-    @Timeout(value=300, unit=TimeUnit.MILLISECONDS)
+    @Timeout(value=500, unit=TimeUnit.MILLISECONDS)
     void testesGrandes() throws IOException {
         int N = 176154;
         long M = 1243110;

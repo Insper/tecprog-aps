@@ -164,9 +164,9 @@ sdfslkdfj
     void testTiraTags() {
         assertEquals("texto", StringUtils.tiraTags("<b>tex<i>t</i></b>o"));
         assertEquals("pode usar < e > se não for tag", StringUtils.tiraTags("<em>pode usar < e > se não for tag</em>"));
-        assertEquals("e pode estar desbalanceado", "<b>e pode estar <div>desbalanceado");
-        assertEquals("com \nvárias\nlinhas", "<div>com \n<b>várias<b>\nlinhas");
-        assertEquals("e com atributos", "<a href=\"bla bla\">e com atributos</a>");
+        assertEquals("e pode estar desbalanceado", StringUtils.tiraTags("<b>e pode estar <div>desbalanceado"));
+        assertEquals("com \nvárias\nlinhas", StringUtils.tiraTags("<div>com \n<b>várias<b>\nlinhas"));
+        assertEquals("e com atributos", StringUtils.tiraTags("<a href=\"bla bla\">e com atributos</a>"));
     }
 
     @Test
@@ -183,7 +183,7 @@ sdfslkdfj
         res = StringUtils.emailsInsper("tes qualquer coisa ;igorsm1@insper.edu.br, andrew.TNK@insper.edu.br" );
         assertEquals(2, res.size());
         assertEquals("igorsm1@insper.edu.br", res.get(0));
-        assertEquals("andrew.TNK@insper.edu.br@insper.edu.br", res.get(1));
+        assertEquals("andrew.TNK@insper.edu.br", res.get(1));
 
         res = StringUtils.emailsInsper("""
         # README do projeto 
