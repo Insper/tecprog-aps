@@ -68,7 +68,7 @@ sdfslkdfj
         res = StringUtilsRE.emailsInsper("igorsm1@insper.edu.br     andrew.TNK@insper.edu.br" );
         assertEquals(2, res.size());
         assertEquals("igorsm1@insper.edu.br", res.get(0));
-        assertEquals("andrew.TNK@insper.edu.br@insper.edu.br", res.get(1));
+        assertEquals("andrew.TNK@insper.edu.br", res.get(1));
 
         res = StringUtilsRE.emailsInsper("tes qualquer coisa ;igorsm1@insper.edu.br, andrew.TNK@insper.edu.br" );
         assertEquals(2, res.size());
