@@ -15,8 +15,8 @@ public class TestSegueParedes {
         for (int i = 1; i < caminho.size(); i++) {
             var atual = caminho.get(i);
             assertTrue(l.ehLivre(atual.i, atual.j));
-            int diffI = atual.i - ultimo.i;
-            int diffJ = atual.j - ultimo.j;
+            int diffI = Math.abs(atual.i - ultimo.i);
+            int diffJ = Math.abs(atual.j - ultimo.j);
 
             if (!((diffI == 1 && diffJ == 0) || (diffI == 0 && diffJ == 1))) {
                 return false;

@@ -11,7 +11,7 @@ public class Posicao implements Comparable<Posicao>{
 
     @Override
     public int compareTo(Posicao arg0) {
-        boolean equal = (i == arg0.i && j == arg0.j)
+        boolean equal = (i == arg0.i && j == arg0.j);
         return equal ? 0 : 1;
     }
 }
