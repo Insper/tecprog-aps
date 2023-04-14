@@ -1,6 +1,7 @@
 package br.edu.insper.tecprog.aps05;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.Test;
@@ -9,7 +10,7 @@ import br.edu.insper.tecprog.aps01.InsperArrayList;
 
 public class TestDFS {
     
-    void testDSF(Labirinto labirinto, Posicao fonte, Posicao destino) {
+    void testDSFComCaminho(Labirinto labirinto, Posicao fonte, Posicao destino) {
         var inst = new DFS();
         var caminhoEncontrado = new InsperArrayList<Posicao>();
         assertTrue(inst.dfs(labirinto, fonte, destino, caminhoEncontrado));
@@ -17,6 +18,12 @@ public class TestDFS {
         assertEquals(caminhoEncontrado.get(0), fonte);
         assertEquals(caminhoEncontrado.get(caminhoEncontrado.size() - 1), destino);
         CaminhoUtils.caminhoValido(labirinto, caminhoEncontrado);
+    }
+
+    void testDSFSemCaminho(Labirinto labirinto, Posicao fonte, Posicao destino) {
+        var inst = new DFS();
+        var caminhoEncontrado = new InsperArrayList<Posicao>();
+        assertFalse(inst.dfs(labirinto, fonte, destino, caminhoEncontrado));
     }
 
     @Test
@@ -32,7 +39,7 @@ public class TestDFS {
         var labirinto = new Labirinto(corredores[0]);
         var fonte = new Posicao(1, 0);
         var destino = new Posicao(2, 3);
-        testDSF(labirinto, fonte, destino);
+        testDSFComCaminho(labirinto, fonte, destino);
     }
 
     @Test
@@ -49,7 +56,7 @@ public class TestDFS {
         var labirinto = new Labirinto(labirintoStr);
         var fonte = new Posicao(1, 9);
         var destino = new Posicao(3, 9);
-        testDSF(labirinto, fonte, destino);
+        testDSFComCaminho(labirinto, fonte, destino);
     }
 
 
@@ -66,11 +73,11 @@ public class TestDFS {
         var labirinto = new Labirinto(labirintoStr);
         var fonte = new Posicao(0, 3);
         var destino = new Posicao(2, 2);
-        testDSF(labirinto, fonte, destino);
+        testDSFComCaminho(labirinto, fonte, destino);
     }
 
     @Test
-    void testeComplicado() {
+    void testeComplicadoComCaminho() {
         String labirintoStr = 
 """
 #########################
@@ -102,6 +109,43 @@ public class TestDFS {
         var labirinto = new Labirinto(labirintoStr);
         var fonte = new Posicao(2, 2);
         var destino = new Posicao(21, 21);
-        testDSF(labirinto, fonte, destino);
+        testDSFComCaminho(labirinto, fonte, destino);
     }
+
+    @Test
+    void testeComplicadoSemCaminho() {
+        String labirintoStr = 
+"""
+#########################
+#....##.......####......#
+#....#.......##.........#
+#....#.......#..........#
+#....#.......#..........#
+#.####.......#..........#
+#...#........#..........#
+#...#........#..........#
+#..##........#..........#
+#..##........#.####.##..#
+#...#........#.#.......##
+#...##########.##########
+#..............#........#
+##############.#.######.#
+#..............#.#..#...#
+#....###.......#.#..#...#
+###.##.#......##.#......#
+#......########..#..#...#
+#......#.....##..#.######
+#......#.....###.#......#
+#..........#.....#......#
+#......#..##.....#......#
+#......#..#......#......#
+#......#..#......#......#
+#########################
+""";
+        var labirinto = new Labirinto(labirintoStr);
+        var fonte = new Posicao(2, 2);
+        var destino = new Posicao(2, 10);
+        testDSFSemCaminho(labirinto, fonte, destino);
+    }
+
 }
