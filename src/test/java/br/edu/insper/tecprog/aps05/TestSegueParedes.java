@@ -5,28 +5,8 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.Test;
 
 import br.edu.insper.tecprog.aps01.InsperArrayList;
-import br.edu.insper.tecprog.aps01.InsperList;
 
 public class TestSegueParedes {
-
-    public boolean caminhoValido(Labirinto l, InsperList<Posicao> caminho) {
-        var ultimo = caminho.get(0);
-
-        for (int i = 1; i < caminho.size(); i++) {
-            var atual = caminho.get(i);
-            assertTrue(l.ehLivre(atual.i, atual.j));
-            int diffI = Math.abs(atual.i - ultimo.i);
-            int diffJ = Math.abs(atual.j - ultimo.j);
-
-            if (!((diffI == 1 && diffJ == 0) || (diffI == 0 && diffJ == 1))) {
-                return false;
-            }
-
-            ultimo = atual;
-        }
-
-        return true;
-    }
 
     @Test
     void testLabirintosCorredor() {
@@ -86,7 +66,7 @@ public class TestSegueParedes {
         assertTrue(caminho.size() > tamMinimo);
         var posicaoFinal = caminho.get(caminho.size()-1);
         assertTrue(l.ehSaida(posicaoFinal.i, posicaoFinal.j));
-        assertTrue(caminhoValido(l, caminho));
+        assertTrue(CaminhoUtils.caminhoValido(l, caminho));
 
         
     }
