@@ -5,6 +5,69 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import br.edu.insper.tecprog.aps01.InsperList;
 
 public class CaminhoUtils {
+    public static String[] corredores = {
+        """
+        #####
+        .....
+        .....
+        #####
+        """, 
+        """
+        #####
+        .....
+        .....
+        #####
+        """,
+        """
+        #...#
+        #...#
+        #...#
+        #...#
+        #...#
+        #...#
+        #...#
+        """,
+        """
+        #...#
+        #...#
+        #...#
+        #...#
+        #...#
+        #...#
+        #...#
+        """
+                };
+    
+    public static String cantos[] = {
+        """
+        ###.#
+        #...#
+        #...#
+        #...#
+        #####
+        """,
+        """
+        #####
+        #...#
+        #...#
+        #....
+        #####
+        """,
+                };
+    
+    public static String becos[] = {
+        """
+        ##########
+        #........#
+        #..#######
+        .........#
+        ##########
+        """
+                };
+        
+        
+
+
     public static boolean caminhoValido(Labirinto l, InsperList<Posicao> caminho) {
         var ultimo = caminho.get(0);
 

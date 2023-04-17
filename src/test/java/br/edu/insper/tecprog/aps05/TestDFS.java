@@ -55,7 +55,7 @@ public class TestDFS {
     
         var labirinto = new Labirinto(labirintoStr);
         var fonte = new Posicao(1, 9);
-        var destino = new Posicao(3, 9);
+        var destino = new Posicao(3, 8);
         testDSFComCaminho(labirinto, fonte, destino);
     }
 

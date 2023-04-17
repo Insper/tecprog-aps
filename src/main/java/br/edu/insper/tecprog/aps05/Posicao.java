@@ -14,4 +14,12 @@ public class Posicao implements Comparable<Posicao>{
         boolean equal = (i == arg0.i && j == arg0.j);
         return equal ? 0 : 1;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        Posicao p = (Posicao) o;
+
+        return i == p.i && j == p.j;
+
+    }
 }
