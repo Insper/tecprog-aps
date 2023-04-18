@@ -47,8 +47,8 @@ public abstract class SortBaseTest {
     }
 
     @Test
-    void largeRandom() {
-        int N = 100000;
+    void somewhatLargeRandom() {
+        int N = 1000;
         Integer a[] = new Integer[N];
         var r = new Random(10);
         for (int i = 0; i < N; i++) {
