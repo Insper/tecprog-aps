@@ -22,4 +22,9 @@ public class Posicao implements Comparable<Posicao>{
         return i == p.i && j == p.j;
 
     }
+
+    @Override
+    public String toString() {
+        return "i: " + Integer.toString(i) + "; j: " + Integer.toString(j);
+    }
 }
