@@ -15,8 +15,8 @@ public class TestDFS {
         var caminhoEncontrado = new InsperArrayList<Posicao>();
         assertTrue(inst.dfs(labirinto, fonte, destino, caminhoEncontrado));
         assertTrue(caminhoEncontrado.size() >= 2);
-        assertEquals(caminhoEncontrado.get(0), fonte);
-        assertEquals(caminhoEncontrado.get(caminhoEncontrado.size() - 1), destino);
+        assertEquals(fonte, caminhoEncontrado.get(0));
+        assertEquals(destino, caminhoEncontrado.get(caminhoEncontrado.size() - 1));
         CaminhoUtils.caminhoValido(labirinto, caminhoEncontrado);
     }
 
